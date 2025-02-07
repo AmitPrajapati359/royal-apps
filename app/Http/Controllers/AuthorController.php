@@ -50,7 +50,7 @@ class AuthorController extends Controller
             foreach ($response['items'] as $key => $data) {
 
                 $params = [
-                    'id' => $data['id']
+                    'id' =>  $data['id']
                 ];
 
                 $response['items'][$key]['gender'] = Str::upper($response['items'][$key]['gender']);
