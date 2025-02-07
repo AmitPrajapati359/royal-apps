@@ -64,7 +64,7 @@ class CandidateApiService
     public function getAuthors($token,$params)
     {
 
-        
+
 
         $response = $this->client->get("$this->baseUrl/authors",[
             'headers' => [
@@ -112,7 +112,6 @@ class CandidateApiService
 
     public function addBook($token, $data)
     {
-        \Log::info(json_encode($data));
         $response = $this->client->post("$this->baseUrl/books", [
             'headers' => [
                 'Authorization' => "Bearer $token",
@@ -135,4 +134,19 @@ class CandidateApiService
 
         return json_decode($response->getBody(), true);
     }
+
+    public function addAuthor($token, $data)
+    {
+        $response = $this->client->post("$this->baseUrl/authors", [
+            'headers' => [
+                'Authorization' => "Bearer $token",
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+            ],
+            'json' => $data,
+        ]);
+
+        return json_decode($response->getBody(), true);
+    }
+
 }
